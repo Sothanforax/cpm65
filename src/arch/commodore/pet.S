@@ -421,15 +421,15 @@ zproc screen_putchar
 zendproc
 
 zproc screen_putstring
-    sta ptr1+0
-    stx ptr1+1
+    sta 1f+1
+    stx 1f+2
 
     IO_ON
     jsr calculate_cursor_address
     ldx #0
     zloop
     1:
-        lda (ptr1), y
+        lda 0xffff, x
         zbreakif eq
 
         jsr convert_ascii_to_screencode
