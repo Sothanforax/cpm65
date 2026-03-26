@@ -8,6 +8,8 @@ from config import (
     BIG_APPS,
     BIG_APPS_SRCS,
     PASCAL_APPS,
+    FORTH_APPS,
+    Z65_APPS,
 )
 
 llvmrawprogram(
@@ -25,7 +27,9 @@ mkcpmfs(
     | MINIMAL_APPS_SRCS
     | BIG_APPS
     | BIG_APPS_SRCS
-    | PASCAL_APPS,
+    | PASCAL_APPS
+    | FORTH_APPS
+    | Z65_APPS,
 )
 
 zip(

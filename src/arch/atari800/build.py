@@ -10,6 +10,8 @@ from config import (
     SCREEN_APPS_SRCS,
     BIG_SCREEN_APPS,
     PASCAL_APPS,
+    FORTH_APPS,
+    Z65_APPS,
 )
 
 llvmclibrary(name="headers", hdrs={"atari800.inc": "./atari800.inc"})
@@ -70,7 +72,8 @@ mkcpmfs(
     name="atari800c_rawdiskimage",
     format="atari90",
     size=128 * 720,
-    items={} | MINIMAL_APPS_SRCS | SCREEN_APPS_SRCS | BIG_APPS_SRCS,
+    items={} | MINIMAL_APPS_SRCS | SCREEN_APPS_SRCS | BIG_APPS_SRCS 
+             | FORTH_APPS,
 )
 
 simplerule(
@@ -119,7 +122,9 @@ mkcpmfs(
     | SCREEN_APPS
     | SCREEN_APPS_SRCS
     | BIG_SCREEN_APPS
-    | PASCAL_APPS,
+    | PASCAL_APPS
+    | FORTH_APPS
+    | Z65_APPS,
 )
 
 simplerule(
@@ -168,7 +173,9 @@ mkcpmfs(
     | SCREEN_APPS
     | SCREEN_APPS_SRCS
     | BIG_SCREEN_APPS
-    | PASCAL_APPS,
+    | PASCAL_APPS
+    | FORTH_APPS
+    | Z65_APPS,
 )
 
 simplerule(

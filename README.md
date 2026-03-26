@@ -585,6 +585,54 @@ website](http://pascal.hansotten.com/px-descendants/pascal-m/pascal-m-2k1/).
 However, do not report bugs on the CP/M-65 port to him --- [file bug reports
 here](https://github.com/davidgiven/cpm65/issues/new) instead.
 
+### The Forth
+
+lbForth is a minimal Forth implementation but still contains a fair amount of
+built in words. It is currently not included on the disks for the C64, VIC20 
+or BBC Micro due to lack of disk space.
+
+The original source code is available [here](https://gist.github.com/lbruder/10007431). 
+
+It has been extended with the possibility to load a script from file at 
+startup if the filename is given as a command line argument, and a small
+example file (`TRIANGLE.FRT`) is included:
+```
+: STAR 42 EMIT ;
+: STARS 0 DO STAR LOOP ;
+: TRIANGLE 1 + 1 DO I STARS CR LOOP ;
+CR 10 TRIANGLE CR
+```
+When run from the command line it produces the following output:
+```
+A> LBFORTH TRIANGLE.FRT
+lbForth for CP/M-65. Use BYE to exit.
+
+*
+**
+***
+****
+*****
+******
+*******
+********
+*********
+**********
+
+END OF FILE
+ OK
+```
+
+### The Z-machine interpreter
+
+z65 is Z-machine interpeter for version 3 Z-machine adventures, written from scratch for CP/M-65. The freeware adventure moonglow is supplied with it to have something to run, but is has been tested with many of the classic version 3 Infocom games (Zork I-III, Mini-Zork, Planetfall, Hollywood Hijinx etc.). It has however not been extensively tested and almost certainly has a lot of bugs, so please report any issues you find.
+
+Saving and restoring games is supported if the games implement support for it. No check is made to ensure that the file being restored is for the correct game.
+
+Usage: Run it with the game file you want to run as a command line argument:
+```
+A> Z65 MOONGLOW.Z3
+```
+
 ### Utilities
 
 `bin/cpmemu` contains a basic CP/M-65 user mode emulator and debugger. It'll run
@@ -645,3 +693,6 @@ and is available under the terms of the BSD 2-Clause License. See
 `third_party/zmalloc` contains a copy of zmalloc, which is © 2024 by Ivo van
 Poorten and is available under the terms of the 0BSD License. See
 `third_party/zmalloc/LICENSE` for the full text.
+
+`third_party/lbforth` contains a port of lbForth, which is © 2014 by Leif Bruder 
+and is released as Public Domain.

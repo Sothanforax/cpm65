@@ -11,6 +11,8 @@ from config import (
     SCREEN_APPS_SRCS,
     BIG_SCREEN_APPS,
     PASCAL_APPS,
+    FORTH_APPS,
+    Z65_APPS,
 )
 import re
 
@@ -78,6 +80,8 @@ zip(
             | SCREEN_APPS_SRCS
             | BIG_SCREEN_APPS
             | PASCAL_APPS
+            | FORTH_APPS
+            | Z65_APPS
         ).items()
     },
 )
