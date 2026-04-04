@@ -291,6 +291,7 @@ zproc unmount_drive
     
     ; Dig further for errors
 
+    lda disk_status                 ; Check for success
     and #ST4_ABNORMAL_TERM
     zif ne
         lda disk_status+1
@@ -441,7 +442,7 @@ zproc create_image
         zendif
         ; If we are here, there was an unexpected error
         lda #<generic_msg
-        ldy #>generic_msg
+        ldx #>generic_msg
         jmp err_withmsg
     zendif
 
@@ -509,7 +510,7 @@ zproc delete_file
         zendif
         ; If we are here, there was an unexpected error
         lda #<generic_msg
-        ldy #>generic_msg
+        ldx #>generic_msg
         jmp err_withmsg
     zendif
 
